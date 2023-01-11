@@ -6,25 +6,6 @@
     <body>
         <p>Bonjour</p>
         <p>hello</p>
-<form>
-  <input type="button" value="Démarrer la machine">
-</form>
-<p>La machine est arrêtée.</p>
-Copy to Clipboard
-var btn = document.querySelector('input');
-var txt = document.querySelector('p');
-
-btn.addEventListener('click', updateBtn);
-
-function updateBtn() {
-  if (btn.value === 'Démarrer la machine') {
-    btn.value = 'Arrêter la machine';
-    txt.textContent = 'La machine est démarrée !';
-  } else {
-    btn.value = 'Démarrer la machine';
-    txt.textContent = 'La machine est arrêtée.';
-  }
-}      
 <input type="button" value="Je suis désactivé" disabled>
     </body>
 </html>
