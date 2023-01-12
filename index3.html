@@ -29,12 +29,21 @@
     </textarea>    
             <br>
             <form enctype="application/x-www-form-urlencoded" 
-              action="https://moialexandre06.github.io/page.html" method=post>
+              action="page.html" method=post>
                 Votre Nom <input type="text" name="nom" size=15> <p>
                 Votre email <input type="text" name="email" size=15> <p>
                 Votre commentaire <textarea name="comment" rows=5 cols=30></textarea> <p>
                 <input type="submit" value="Envoyer">
                 <input type="reset" value="Effacer">
             </form>
+            <form action="recuper-donnees-formulaire.php.php" method="post">
+                Pseudo : <input type="text" name="pseudo" placeholder="saisir...">
+                <input type="submit" name="envoi">
+               </form>
+               <?php
+               if(isset($_POST['envoi'])){ // si formulaire soumis
+               echo $_POST['pseudo'];
+               }
+               ?>
     </body>
 </html>    

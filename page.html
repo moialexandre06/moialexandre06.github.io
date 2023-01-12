@@ -23,8 +23,15 @@
         <input type="submit" value="Envoyer">
         <input type="reset" value="Effacer">
     </form>
-
-
-
+    <br>
+    <form action="recuper-donnees-formulaire.php.php" method="post">
+        Pseudo : <input type="text" name="pseudo" placeholder="saisir...">
+        <input type="submit" name="envoi">
+       </form>
+    <?php
+    if(isset($_POST['envoi'])){ // si formulaire soumis
+    echo $_POST['pseudo'];
+    }
+    ?>
 </body>
 </html>
