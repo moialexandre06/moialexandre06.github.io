@@ -1,2 +1,5 @@
-Bonjour, <?php echo htmlspecialchars($_POST['nom']); ?>.
-Tu as <?php echo (int)$_POST['age']; ?> ans.
+<?php
+if(isset($_POST['envoi'])){ // si formulaire soumis
+echo $_POST['pseudo'];
+}
+?>
