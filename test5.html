@@ -1,107 +1,116 @@
 <<!DOCTYPE html>
 <html lang="fr-CA">
-<head>
-<meta charset="utf-8">
-<title>Récupérer un formulaire en Javascript - Les paramètres GET de la requête HTTP - Trucsweb.com</title>
-<script type="text/javascript" language="javascript">
-<!-- Début
-// ********************************************
-// Récupération de paramètre d’une requête HTTP
-// ou récupération des données d’un formulaire.
-// Auteur : Oznog (www.trucsweb.com)
-// ********************************************
+  <head>
+    <meta charset="utf-8" />
+    <title>
+      Récupérer un formulaire en Javascript - Les paramètres GET de la requête
+      HTTP - Trucsweb.com
+    </title>
+    <script type="text/javascript" language="javascript">
+      <!-- Début
+      // ********************************************
+      // Récupération de paramètre d’une requête HTTP
+      // ou récupération des données d’un formulaire.
+      // Auteur : Oznog (www.trucsweb.com)
+      // ********************************************
 
-// NE PAS MODIFIER CE CODE
-var paramOk = true;
+      // NE PAS MODIFIER CE CODE
+      var paramOk = true;
 
-function FaitTableau(n) {
-  // Création d’un tableau (array)
-  // aux dimensions du nombre de paramètres.
-  this.length = n;
-  for (var i = 0; i <= n; i++) {
-    this[i] = 0
-  }
-  return this
-}
+      function FaitTableau(n) {
+        // Création d’un tableau (array)
+        // aux dimensions du nombre de paramètres.
+        this.length = n;
+        for (var i = 0; i <= n; i++) {
+          this[i] = 0;
+        }
+        return this;
+      }
 
-function ParamValeur(nValeur) {
-  // Récupération de la valeur d’une variable
-  // Pour créer la variable en Javascript.
-  var nTemp = "";
-  for (var i=0;i<(param.length+1);i++) {
-    if (param[i].substring(0,param[i].indexOf("=")) == nValeur)
-      nTemp = param[i].substring(param[i].indexOf("=")+1,param[i].length)
-  }
-  return Decode(nTemp)
-}
+      function ParamValeur(nValeur) {
+        // Récupération de la valeur d’une variable
+        // Pour créer la variable en Javascript.
+        var nTemp = "";
+        for (var i = 0; i < param.length + 1; i++) {
+          if (param[i].substring(0, param[i].indexOf("=")) == nValeur)
+            nTemp = param[i].substring(
+              param[i].indexOf("=") + 1,
+              param[i].length
+            );
+        }
+        return Decode(nTemp);
+      }
 
-// Extraction des paramètres de la requête HTTP
-// et initialise la variable "paramOk" à false
-// s’il n’y a aucun paramètre.
-if (!location.search) {
-  paramOk = false;
-}
-else {
-  // Éliminer le "?"
-  nReq = location.search.substring(1)
-  // Extrait les différents paramètres avec leur valeur.
-  nReq = nReq.split("&");
-  param = new FaitTableau(nReq.length-1)
-  for (var i=0;i<(nReq.length);i++) {
-    param[i] = nReq[i]
-  }
-}
+      // Extraction des paramètres de la requête HTTP
+      // et initialise la variable "paramOk" à false
+      // s’il n’y a aucun paramètre.
+      if (!location.search) {
+        paramOk = false;
+      } else {
+        // Éliminer le "?"
+        nReq = location.search.substring(1);
+        // Extrait les différents paramètres avec leur valeur.
+        nReq = nReq.split("&");
+        param = new FaitTableau(nReq.length - 1);
+        for (var i = 0; i < nReq.length; i++) {
+          param[i] = nReq[i];
+        }
+      }
 
-// Décoder la requête HTTP
-// manuellement pour le signe (+)
-function Decode(tChaine) {
-  while (true) {
-    var i = tChaine.indexOf("+");
-    if (i < 0) break;
-    tChaine = tChaine.substring(0,i) + "%20" + tChaine.substring(i + 1, tChaine.length);
-  }
-  return unescape(tChaine)
-}
-// End -->
-</script>
+      // Décoder la requête HTTP
+      // manuellement pour le signe (+)
+      function Decode(tChaine) {
+        while (true) {
+          var i = tChaine.indexOf("+");
+          if (i < 0) break;
+          tChaine =
+            tChaine.substring(0, i) +
+            "%20" +
+            tChaine.substring(i + 1, tChaine.length);
+        }
+        return unescape(tChaine);
+      }
+      // End -->
+    </script>
 
-<script type="text/javascript" language="javascript">
-<!-- Début
-// ***************************************
-// À MODIFIER - AJOUTER DES PARAMÈTRES ICI
-// ***************************************
-// Créer les variables avec leur contenu
-// basé sur la requête:
-// ?nom=...&prenom=...&email=...
-if (paramOk) {
-  nom = ParamValeur("nom");
-  prenom = ParamValeur("prenom");
-  email = ParamValeur("email");
-}
-// End -->
-</script>
-</head>
+    <script type="text/javascript" language="javascript">
+      <!-- Début
+      // ***************************************
+      // À MODIFIER - AJOUTER DES PARAMÈTRES ICI
+      // ***************************************
+      // Créer les variables avec leur contenu
+      // basé sur la requête:
+      // ?nom=...&prenom=...&email=...
+      if (paramOk) {
+        nom = ParamValeur("nom");
+        prenom = ParamValeur("prenom");
+        email = ParamValeur("email");
+      }
+      // End -->
+    </script>
+  </head>
 
-<body>
-<form method="get" action="test5.html">
-<p>Nom : <input type="text" name="nom" /></p>
-<p>Prénom : <input type="text" name="prenom" /></p>
-<p>Courriel : <input type="text" name="email" /></p>
-<p><input type="submit" name="Submit" value="Soumettre" /></p>
-</form>
+  <body>
+    <form method="get" action="test5.html">
+      <p>Nom : <input type="text" name="nom" /></p>
+      <p>Prénom : <input type="text" name="prenom" /></p>
+      <p>Courriel : <input type="text" name="email" /></p>
+      <p><input type="submit" name="Submit" value="Soumettre" /></p>
+    </form>
 
-<script type="text/javascript" language="javascript">
-<!-- Début
-// ***************************************
-// POUR L’EXEMPLE, AFFICHAGE DES VARIABLE
-// ***************************************
-if (paramOk) {
-  document.write(nom);
-  document.write(",");
-  document.write(prenom);
-  document.write(", ");
-  document.write(email);
-// End -->
-</script>
-</body>
+    <script type="text/javascript" language="javascript">
+      <!-- Début
+      // ***************************************
+      // POUR L’EXEMPLE, AFFICHAGE DES VARIABLE
+      // ***************************************
+      if (paramOk) {
+        document.write(nom);
+        document.write(",");
+        document.write(prenom);
+        document.write(", ");
+        document.write(email);
+      }
+      // End -->
+    </script>
+  </body>
 </html>
