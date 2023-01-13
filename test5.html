@@ -77,7 +77,6 @@ if (paramOk) {
   nom = ParamValeur("nom");
   prenom = ParamValeur("prenom");
   email = ParamValeur("email");
-  mot de passe = ParamValeur("mot-de-passe");
 }
 // End -->
 </script>
@@ -88,7 +87,6 @@ if (paramOk) {
 <p>Nom : <input type="text" name="nom" /></p>
 <p>Prénom : <input type="text" name="prenom" /></p>
 <p>Courriel : <input type="text" name="email" /></p>
-<p>Mot De Passee : <input type="text" name="mot-de-passe" /></p>
 <p><input type="submit" name="Submit" value="Soumettre" /></p>
 </form>
 
@@ -98,15 +96,11 @@ if (paramOk) {
 // POUR L’EXEMPLE, AFFICHAGE DES VARIABLE
 // ***************************************
 if (paramOk) {
-  document.write("nom:")
   document.write(nom);
-  document.write("prenom:");
+  document.write(",");
   document.write(prenom);
-  document.write("email:");
+  document.write(", ");
   document.write(email);
-  document.write("mot-de-passe:");
-  document.write(mot-de-passe);
-}
 // End -->
 </script>
 </body>
