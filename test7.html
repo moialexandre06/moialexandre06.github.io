@@ -6,10 +6,6 @@
 		if(Val1 == '' || Val2 == '' Val3 == '' ) {
 			window.alert('Veuillez saisir 2 nombres à additionner!');
 		} else {
-            var ope = parseInt(Val3, /)
-            var ope = parseInt(Val3, *)
-            var ope = parseInt(Val3, +)
-            var ope = parseInt(Val3, -)
             var Nbre1 = parseInt(Val1, 10);
 			var Nbre2 = parseInt(Val2, 10);
 			
@@ -24,7 +20,6 @@
 <form>
 	Nombre 1 <input type="text" id="nbr1" name="nombre1" value="" /><br /><br /> 
 	Nombre 2 <input type="text" id="nbr2" name="nombre2" value="" /><br /><br />
-	operation <input type="text" id="ope" name="operation" value="" /><br /><br />
     <input type="submit" value="TEST" onclick="javascript:addNbre(document.getElementById('nbr1').value, document.getElementById('nbr2').value, document.getElementById('ope').value)" />
 </form>
 </body>
